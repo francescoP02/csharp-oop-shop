@@ -7,7 +7,7 @@
 
 public class Product
 {
-    private int code;
+    private string code;
     string name;
     string productName;
     string description;
@@ -27,9 +27,11 @@ public class Product
 
     Random rnd = new Random();
 
-    private int SetCode()
+    private string SetCode()
     {
-        return rnd.Next(99999999);
+        string code = Convert.ToString(rnd.Next(999999));
+        code = code.PadLeft(8, '0');
+        return code;
     }
 
     private double SetIva()
