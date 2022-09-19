@@ -4,19 +4,15 @@ public class Product
 {
     private string code;
     private string name;
-    private string productName;
     private string description;
     private double price;
-    private double iva;
 
     public Product(string name, string description, double price)
     {
         this.code = SetCode();
         this.name = name;
-        this.productName = SetCompleteName();
         this.description = description;
         this.price = price;
-        this.iva = SetIva(); 
     }
 
     private string SetCode()
@@ -40,44 +36,21 @@ public class Product
 
     }
 
-    private double SetIva()
+    public double GetIva()
     {
-        Console.WriteLine("Vuoi il prezzo con l'iva? (yes/no)");
-        string ivaFlag = Console.ReadLine();
-        if (ivaFlag == "yes")
-        {
-            return this.price + (this.price * 0.22);
-        }
-        else
-        {
-            return 0;
-        }
+        return this.price + (this.price * 0.22);
     }
 
-    private string SetCompleteName()
+    public string GetCompleteName()
     {
-        Console.WriteLine("Vuoi il nome esteso? (yes/no)");
-        string nameFlag = Console.ReadLine();
-
-        if (nameFlag == "yes")
-        {
-            return this.name + " Cod." + this.code;
-        } 
-        else
-        {
-            return this.name;
-        }
+        return this.name + " Cod." + this.code;
     }
 
     public void getProduct()
     {
         Console.WriteLine($"Product code: {this.code}");
-        Console.WriteLine($"Product name: {this.productName}");
+        Console.WriteLine($"Product name: {this.name}");
         Console.WriteLine($"Product description: {this.description}");
         Console.WriteLine($"Product price: {this.price} euro");
-        if (this.iva != 0)
-        {
-            Console.WriteLine($"Product price + iva: {this.iva} euro");
-        }
     }
 }
