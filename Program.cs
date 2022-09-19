@@ -12,4 +12,4 @@ double productPrice = Convert.ToDouble(Console.ReadLine());
 
 Product prod1 = new Product(productName, productDescription, productPrice);
 
-prod1.Print();
+prod1.getProduct();

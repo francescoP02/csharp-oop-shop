@@ -1,37 +1,43 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-
-
-
-
-
 public class Product
 {
     private string code;
-    string name;
-    string productName;
-    string description;
-    double price;
+    private string name;
+    private string productName;
+    private string description;
+    private double price;
     private double iva;
 
     public Product(string name, string description, double price)
     {
         this.code = SetCode();
         this.name = name;
-        this.productName = CompleteName();
+        this.productName = SetCompleteName();
         this.description = description;
         this.price = price;
         this.iva = SetIva(); 
     }
 
-
-    Random rnd = new Random();
-
     private string SetCode()
     {
-        string code = Convert.ToString(rnd.Next(999999));
-        code = code.PadLeft(8, '0');
+        Random rnd = new Random();
+
+        string code = Convert.ToString(rnd.Next(1, 999999));
+
+        //code = code.PadLeft(8, '0');
+
+        if (code.Length >= 8)
+        {
+            return code;
+        }
+        for (int i = code.Length; i < 8; i++)
+        {
+            code = '0' + code;
+        }
+
         return code;
+
     }
 
     private double SetIva()
@@ -48,7 +54,7 @@ public class Product
         }
     }
 
-    public string CompleteName()
+    private string SetCompleteName()
     {
         Console.WriteLine("Vuoi il nome esteso? (yes/no)");
         string nameFlag = Console.ReadLine();
@@ -63,7 +69,7 @@ public class Product
         }
     }
 
-    public void Print()
+    public void getProduct()
     {
         Console.WriteLine($"Product code: {this.code}");
         Console.WriteLine($"Product name: {this.productName}");
