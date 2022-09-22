@@ -1,11 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-public class Product
+public abstract class Product
 {
-    private string Code { get; set; }
-    private string Name { get; set; }
-    private string Description { get; set; }
-    private double Price { get; set; }
+    public string Code { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public double Price { get; set; }
 
     public Product(string name, string description, double price)
     {
@@ -36,21 +36,22 @@ public class Product
 
     }
 
-    public double GetIva()
-    {
-        return this.Price + (this.Price * 0.22);
-    }
-
-    public string GetCompleteName()
-    {
-        return this.Name + " Cod." + this.Code;
-    }
-
     public void GetProduct()
     {
         Console.WriteLine($"Product code: {Code}");
         Console.WriteLine($"Product name: {Name}");
         Console.WriteLine($"Product description: {Description}");
         Console.WriteLine($"Product price: {Price} euro");
+    }
+
+
+    public double GetIva()
+    {
+        return Price + (Price * 0.22);
+    }
+
+    public string GetCompleteName()
+    {
+        return Name + " Cod." + Code;
     }
 }
