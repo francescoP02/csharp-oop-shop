@@ -160,12 +160,6 @@ void AddNewWater()
         Console.WriteLine("Inserisci il prezzo del prodotto:");
         double productPrice = Convert.ToDouble(Console.ReadLine());
 
-        //Console.WriteLine("Vuoi il nome esteso? (yes/no)");
-        //string nameFlag = Console.ReadLine();
-
-        //Console.WriteLine("Vuoi il prezzo con l'iva? (yes/no)");
-        //string ivaFlag = Console.ReadLine();
-
         Console.WriteLine("How many liters does it have?");
         double liters = Convert.ToDouble(Console.ReadLine());
 

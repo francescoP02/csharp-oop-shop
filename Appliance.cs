@@ -7,13 +7,14 @@ public class Appliance : Product
 
     public Appliance(string name, string description, double price, string energyRating) : base(name, description, price)
     {
-        if(energyRating != "A++" || energyRating != "A+" || energyRating != "A" || energyRating != "B" || energyRating != "C" || energyRating != "D" || energyRating != "E" || energyRating != "F")
+        if(energyRating == "A++" || energyRating == "A+" || energyRating == "A" || energyRating == "B" || energyRating == "C" || energyRating == "D" || energyRating == "E" || energyRating == "F")
         {
             EnergyRating = energyRating;
         }
         else
         {
             throw new InvalidOperationException("Invalid energy rating");
+            Console.WriteLine(Environment.NewLine);
         }
     }
 
