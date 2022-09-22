@@ -3,11 +3,10 @@
 public class CannedFood : Product
 {
     public int Quantity { get; private set; }
-    public int Capacity { get; }
 
     public int maxQuantity = 300;
 
-    public CannedFood(string name, string description, double price, int quantity, int capacity) : base(name, description, price)
+    public CannedFood(string name, string description, double price, int quantity) : base(name, description, price)
     {
         if (quantity <= maxQuantity)
         {
@@ -20,5 +19,9 @@ public class CannedFood : Product
         }
     }
 
+    public string GetInformation()
+    {
+        return $"{GetCompleteName()} - Price: {Price} euro (With Iva: {GetIva()} euro) - Quantity: {Quantity}g";
+    }
 
 }

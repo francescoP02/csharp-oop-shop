@@ -116,10 +116,12 @@ do
     else if (choice == "appliance")
     {
         AddNewAppliance();
+        Console.WriteLine(Environment.NewLine);
     }
     else if (choice == "canned food")
     {
-        Console.WriteLine("canned food");
+        AddNewCannedFood();
+        Console.WriteLine(Environment.NewLine);
     }
 
 } while (choice != "exit");
@@ -142,6 +144,15 @@ Console.WriteLine(Environment.NewLine);
 foreach (Appliance appliance in applianceProducts)
 {
     Console.WriteLine($"{appliance.GetInformation()}");
+}
+
+Console.WriteLine(Environment.NewLine);
+Console.WriteLine("****All Canned Food' Informations****");
+Console.WriteLine(Environment.NewLine);
+
+foreach (CannedFood cannedFood in cannedFoodProducts)
+{
+    Console.WriteLine($"{cannedFood.GetInformation()}");
 }
 
 
@@ -202,6 +213,32 @@ void AddNewAppliance()
         Appliance newAppliance = new Appliance(productName, productDescription, productPrice, energyRating);
 
         applianceProducts.Add(newAppliance);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e.Message);
+    }
+}
+
+void AddNewCannedFood()
+{
+    try
+    {
+        Console.WriteLine("Inserisci il nome del prodotto:");
+        string productName = Console.ReadLine();
+
+        Console.WriteLine("Inserisci la descrizione del prodotto:");
+        string productDescription = Console.ReadLine();
+
+        Console.WriteLine("Inserisci il prezzo del prodotto:");
+        double productPrice = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Insert quantity:");
+        int capacity = Convert.ToInt32(Console.ReadLine());
+
+        CannedFood newCannedFood = new CannedFood(productName, productDescription, productPrice, capacity);
+
+        cannedFoodProducts.Add(newCannedFood);
     }
     catch (Exception e)
     {
