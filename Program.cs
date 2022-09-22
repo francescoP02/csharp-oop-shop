@@ -53,7 +53,8 @@ do
             if (userInput == "add")
             {
                 AddNewWater();
-                Console.Clear();
+                //Console.Clear();
+                Console.WriteLine(Environment.NewLine);
             }
             if (userInput == "drink")
             {

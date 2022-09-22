@@ -14,7 +14,6 @@ public class Appliance : Product
         else
         {
             throw new InvalidOperationException("Invalid energy rating");
-            Console.WriteLine(Environment.NewLine);
         }
     }
 

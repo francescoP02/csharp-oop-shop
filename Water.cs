@@ -20,7 +20,7 @@ public class Water : Product
             throw new InvalidOperationException("Too much capacity");
         }
 
-        if (Ph < 0 || Ph > 14)
+        if (ph < 0 || ph > 14)
         {
             throw new Exception("The ph entered is not valid");
         }
