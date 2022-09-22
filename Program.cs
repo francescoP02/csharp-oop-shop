@@ -111,7 +111,8 @@ do
     }
     else if (choice == "fruit bag")
     {
-        Console.WriteLine("fruit bag");
+        AddNewFruitBag();
+        Console.WriteLine(Environment.NewLine);
     }
     else if (choice == "appliance")
     {
@@ -155,6 +156,15 @@ foreach (CannedFood cannedFood in cannedFoodProducts)
     Console.WriteLine($"{cannedFood.GetInformation()}");
 }
 
+Console.WriteLine(Environment.NewLine);
+Console.WriteLine("****All Fruit Bags' Informations****");
+Console.WriteLine(Environment.NewLine);
+
+foreach (FruitBag fruitBag in fruitBagProducts)
+{
+    Console.WriteLine($"{fruitBag.GetInformation()}");
+}
+
 
 
 
@@ -163,13 +173,13 @@ void AddNewWater()
 
     try
     {
-        Console.WriteLine("Inserisci il nome del prodotto:");
+        Console.WriteLine("Insert product's name:");
         string productName = Console.ReadLine();
 
-        Console.WriteLine("Inserisci la descrizione del prodotto:");
+        Console.WriteLine("Insert product's description:");
         string productDescription = Console.ReadLine();
 
-        Console.WriteLine("Inserisci il prezzo del prodotto:");
+        Console.WriteLine("Insert product's price:");
         double productPrice = Convert.ToDouble(Console.ReadLine());
 
         Console.WriteLine("How many liters does it have?");
@@ -197,13 +207,13 @@ void AddNewAppliance()
 {
     try
     {
-        Console.WriteLine("Inserisci il nome del prodotto:");
+        Console.WriteLine("Insert product's name:");
         string productName = Console.ReadLine();
 
-        Console.WriteLine("Inserisci la descrizione del prodotto:");
+        Console.WriteLine("Insert product's description:");
         string productDescription = Console.ReadLine();
 
-        Console.WriteLine("Inserisci il prezzo del prodotto:");
+        Console.WriteLine("Insert product's price:");
         double productPrice = Convert.ToDouble(Console.ReadLine());
 
         Console.WriteLine("Insert energy rating");
@@ -224,13 +234,13 @@ void AddNewCannedFood()
 {
     try
     {
-        Console.WriteLine("Inserisci il nome del prodotto:");
+        Console.WriteLine("Insert product's name:");
         string productName = Console.ReadLine();
 
-        Console.WriteLine("Inserisci la descrizione del prodotto:");
+        Console.WriteLine("Insert product's description:");
         string productDescription = Console.ReadLine();
 
-        Console.WriteLine("Inserisci il prezzo del prodotto:");
+        Console.WriteLine("Insert product's price:");
         double productPrice = Convert.ToDouble(Console.ReadLine());
 
         Console.WriteLine("Insert quantity:");
@@ -239,6 +249,32 @@ void AddNewCannedFood()
         CannedFood newCannedFood = new CannedFood(productName, productDescription, productPrice, capacity);
 
         cannedFoodProducts.Add(newCannedFood);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e.Message);
+    }
+}
+
+void AddNewFruitBag()
+{
+    try
+    {
+        Console.WriteLine("Insert product's name:");
+        string productName = Console.ReadLine();
+
+        Console.WriteLine("Insert product's description:");
+        string productDescription = Console.ReadLine();
+
+        Console.WriteLine("Insert product's price:");
+        double productPrice = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Insert quantity:");
+        int capacity = Convert.ToInt32(Console.ReadLine());
+
+        FruitBag newFruitBag = new FruitBag(productName, productDescription, productPrice, capacity);
+
+        fruitBagProducts.Add(newFruitBag);
     }
     catch (Exception e)
     {
