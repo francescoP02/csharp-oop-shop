@@ -2,55 +2,55 @@
 
 public class Product
 {
-    private string code;
-    private string name;
-    private string description;
-    private double price;
+    private string Code { get; set; }
+    private string Name { get; set; }
+    private string Description { get; set; }
+    private double Price { get; set; }
 
     public Product(string name, string description, double price)
     {
-        this.code = SetCode();
-        this.name = name;
-        this.description = description;
-        this.price = price;
+        Code = SetCode();
+        Name = name;
+        Description = description;
+        Price = price;
     }
 
     private string SetCode()
     {
         Random rnd = new Random();
 
-        string code = Convert.ToString(rnd.Next(1, 999999));
+        string Code = Convert.ToString(rnd.Next(1, 999999));
 
-        //code = code.PadLeft(8, '0');
+        Code = Code.PadLeft(8, '0');
 
-        if (code.Length >= 8)
-        {
-            return code;
-        }
-        for (int i = code.Length; i < 8; i++)
-        {
-            code = '0' + code;
-        }
+        //if (code.Length >= 8)
+        //{
+        //    return code;
+        //}
+        //for (int i = code.Length; i < 8; i++)
+        //{
+        //    code = '0' + code;
+        //}
 
-        return code;
+        return Code;
 
     }
 
     public double GetIva()
     {
-        return this.price + (this.price * 0.22);
+        return this.Price + (this.Price * 0.22);
     }
 
     public string GetCompleteName()
     {
-        return this.name + " Cod." + this.code;
+        return this.Name + " Cod." + this.Code;
     }
 
-    public void getProduct()
+    public void GetProduct()
     {
-        Console.WriteLine($"Product code: {this.code}");
-        Console.WriteLine($"Product name: {this.name}");
-        Console.WriteLine($"Product description: {this.description}");
-        Console.WriteLine($"Product price: {this.price} euro");
+        Console.WriteLine($"Product code: {Code}");
+        Console.WriteLine($"Product name: {Name}");
+        Console.WriteLine($"Product description: {Description}");
+        Console.WriteLine($"Product price: {Price} euro");
     }
 }
