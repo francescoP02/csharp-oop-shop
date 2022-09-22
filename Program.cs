@@ -114,7 +114,7 @@ do
     }
     else if (choice == "appliance")
     {
-        Console.WriteLine("appliance");
+        AddNewAppliance();
     }
     else if (choice == "canned food")
     {
@@ -131,7 +131,16 @@ Console.WriteLine(Environment.NewLine);
 
 foreach (Water water in waterProducts)
 {
-    Console.WriteLine($"{water.GetFullName()}");
+    Console.WriteLine($"{water.GetInformation()}");
+}
+
+Console.WriteLine(Environment.NewLine);
+Console.WriteLine("****All Appliances' Informations****");
+Console.WriteLine(Environment.NewLine);
+
+foreach (Appliance appliance in applianceProducts)
+{
+    Console.WriteLine($"{appliance.GetInformation()}");
 }
 
 
@@ -171,6 +180,33 @@ void AddNewWater()
         waterProducts.Add(newWater);
 
         Console.Clear();
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e.Message);
+    }
+}
+
+void AddNewAppliance()
+{
+    try
+    {
+        Console.WriteLine("Inserisci il nome del prodotto:");
+        string productName = Console.ReadLine();
+
+        Console.WriteLine("Inserisci la descrizione del prodotto:");
+        string productDescription = Console.ReadLine();
+
+        Console.WriteLine("Inserisci il prezzo del prodotto:");
+        double productPrice = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Insert energy rating");
+        Console.WriteLine("(Insert one of this: A++, A+, A, B, C, D, E, F)");
+        string energyRating = Console.ReadLine();
+
+        Appliance newAppliance = new Appliance(productName, productDescription, productPrice, energyRating);
+
+        applianceProducts.Add(newAppliance);
     }
     catch (Exception e)
     {

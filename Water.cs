@@ -6,6 +6,8 @@ public class Water : Product
     public int Ph { get; set; }
     public string Source { get; set; }
 
+    float maxCapacity = 1.5f;
+
     public Water(string name, string description, double price, double liters, int ph, string source) : base(name, description, price)
     {
         if (liters <= maxCapacity)
@@ -29,8 +31,6 @@ public class Water : Product
 
         Source = source;
     }
-
-    float maxCapacity = 1.5f;
 
     public void Drink(double Quantity)
     {
@@ -67,9 +67,9 @@ public class Water : Product
         Liters = 0;
     }
 
-    public string GetFullName()
+    public string GetInformation()
     {
-        return $"{this.GetCompleteName()} - Source: {Source} - PH: {this.Ph} - Liters: {Liters}";
+        return $"{GetCompleteName()} - Price: {Price} euro (With Iva: {GetIva()} euro) - Source: {Source} - PH: {this.Ph} - Liters: {Liters}";
     }
 
 }

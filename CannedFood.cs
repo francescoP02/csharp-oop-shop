@@ -3,11 +3,13 @@
 public class CannedFood : Product
 {
     public int Quantity { get; private set; }
-    public int Capacity { get; } = 300;
+    public int Capacity { get; }
+
+    public int maxQuantity = 300;
 
     public CannedFood(string name, string description, double price, int quantity, int capacity) : base(name, description, price)
     {
-        if (quantity <= 300)
+        if (quantity <= maxQuantity)
         {
             Quantity = quantity;
         }
